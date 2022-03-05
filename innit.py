@@ -60,32 +60,32 @@ class main():
         if self.radius:
             if not self.volume:
                 if not self.diameter:
-                    self.diameter = self.radius* 2
+                    self.diameter = round(self.radius* 2, 3)
                 if not self.circumference:
                     self.circumference = round(2* self.radius * numpy.pi, 3)
                 if not self.basearea:
                     self.basearea = round(numpy.pi * self.radius * self.radius, 3)
                 if not self.volume:
-                    self.volume = self.basearea * self.height
+                    self.volume = round(self.basearea * self.height, 3)
             if self.volume:
                 if not self.diameter:
-                    self.diameter = self.radius * 2
+                    self.diameter = round(self.radius * 2, 3)
                 if not self.circumference:
                     self.circumference = round(2 * self.radius * numpy.pi, 3)
                 if not self.basearea:
                     self.basearea = round(numpy.pi * self.radius * self.radius, 3)
                 if not self.height:
-                    self.height = self.volume // self.basearea
+                    self.height = round(self.volume /self.basearea, 3 )
         if self.diameter:
             if not self.volume:
                 if not self.radius:
-                    self.radius = self.diameter // 2
+                    self.radius = float(self.diameter / 2)
                 if not self.circumference:
                     self.circumference = round(2* self.radius * numpy.pi, 3)
                 if not self.basearea:
                     self.basearea = round(numpy.pi * self.radius * self.radius, 3)
                 if not self.volume:
-                    self.volume = self.basearea * self.height
+                    self.volume = round(self.basearea * self.height)
 
     def showdata(self):
         data = [["Volume:", self.volume], ["Base Area:", self.basearea], ["Circumference:", self.circumference], ["Radius:", self.radius], ["Diameter:", self.diameter], ["Height:", self.height]]
