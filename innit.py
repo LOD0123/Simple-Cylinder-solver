@@ -1,5 +1,6 @@
 from tabulate import tabulate
 import numpy
+import math
 
 
 class main():
@@ -56,36 +57,164 @@ class main():
                 self.height = float(self.height)
         except:
             print("Unable to turn base area into a float")
+
     def comput(self):
         if self.radius:
             if not self.volume:
                 if not self.diameter:
-                    self.diameter = round(self.radius* 2, 3)
+                    try:
+                        self.diameter = round(self.radius* 2, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.circumference:
-                    self.circumference = round(2* self.radius * numpy.pi, 3)
+                    try:
+                        self.circumference = round(2* self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.basearea:
-                    self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    try:
+                        self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.volume:
-                    self.volume = round(self.basearea * self.height, 3)
+                    try:
+                        self.volume = round(self.basearea * self.height, 3)
+                    except:
+                        self.conhandle = 0
             if self.volume:
                 if not self.diameter:
-                    self.diameter = round(self.radius * 2, 3)
+                    try:
+                        self.diameter = round(self.radius * 2, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.circumference:
-                    self.circumference = round(2 * self.radius * numpy.pi, 3)
+                    try:
+                        self.circumference = round(2 * self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.basearea:
-                    self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    try:
+                        self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.height:
-                    self.height = round(self.volume /self.basearea, 3 )
+                    try:
+                        self.height = round(self.volume /self.basearea, 3 )
+                    except:
+                        self.conhandle = 0
         if self.diameter:
             if not self.volume:
                 if not self.radius:
-                    self.radius = float(self.diameter / 2)
+                    try:
+                        self.radius = float(self.diameter / 2)
+                    except:
+                        self.conhandle = 0
                 if not self.circumference:
-                    self.circumference = round(2* self.radius * numpy.pi, 3)
+                    try:
+                        self.circumference = round(2* self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.basearea:
-                    self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    try:
+                        self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    except:
+                        self.conhandle = 0
                 if not self.volume:
-                    self.volume = round(self.basearea * self.height)
+                    try:
+                        self.volume = round(self.basearea * self.height)
+                    except:
+                        self.conhandle = 0
+                return
+            if self.volume:
+                if not self.radius:
+                    try:
+                        self.radius = round(self.diameter /2, 3)
+                    except:
+                        self.conhandle = 0
+                if not self.circumference:
+                    try:
+                        self.circumference = round(2 * self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
+                if not self.basearea:
+                    try:
+                        self.basearea = round(numpy.pi * self.radius * self.radius, 3)
+                    except:
+                        self.conhandle = 0
+                if not self.height:
+                    try:
+                        self.height = round(self.volume /self.basearea, 3 )
+                    except:
+                        self.conhandle = 0
+                return
+        if self.height:
+            if self.volume:
+                if not self.basearea:
+                    try:
+                        self.basearea = float(round(self.volume/ self.height))
+                    except:
+                        self.conhandle = 0
+                if not self.radius:
+                    try:
+                        self.radius = float(round(math.sqrt(self.basearea / numpy.pi), 10))
+                    except:
+                        self.conhandle = 0
+                if not self.diameter:
+                    try:
+                        self.diameter = float(self.radius *2)
+                    except:
+                        self.conhandle = 0
+                if not self.circumference:
+                    try:
+                        self.circumference = round(2 * self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
+            return
+        if self.basearea:
+            if self.volume:
+                if not self.height:
+                    try:
+                        self.height = float(self.volume/ self.basearea)
+                    except:
+                        self.conhandle = 0
+                if not self.radius:
+                    try:
+                        self.radius = float(round(math.sqrt(self.basearea / numpy.pi), 10))
+                    except:
+                        self.conhandle = 0
+                if not self.diameter:
+                    try:
+                        self.diameter = float(self.radius *2)
+                    except:
+                        self.conhandle = 0
+                if not self.circumference:
+                    try:
+                        self.circumference = round(2 * self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
+                return
+            if self.height:
+                if not self.volume:
+                    try:
+                        self.volume = float(self.height* self.basearea)
+                    except:
+                        self.conhandle = 0
+                if not self.radius:
+                    try:
+                        self.radius = float(round(math.sqrt(self.basearea / numpy.pi), 10))
+                    except:
+                        self.conhandle = 0
+                if not self.diameter:
+                    try:
+                        self.diameter = float(self.radius *2)
+                    except:
+                        self.conhandle = 0
+                if not self.circumference:
+                    try:
+                        self.circumference = round(2 * self.radius * numpy.pi, 3)
+                    except:
+                        self.conhandle = 0
+
 
     def showdata(self):
         data = [["Volume:", self.volume], ["Base Area:", self.basearea], ["Circumference:", self.circumference], ["Radius:", self.radius], ["Diameter:", self.diameter], ["Height:", self.height]]
@@ -93,3 +222,4 @@ class main():
 
 
 main()
+
