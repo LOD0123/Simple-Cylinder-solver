@@ -1,3 +1,4 @@
+#this porject has been discountinued.
 # Simple-Cylinder-solver
 this script is able to calculate all the dimentions of a cylinder or circle from only needing 2 facors.
 
